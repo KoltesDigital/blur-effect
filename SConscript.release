@@ -1,0 +1,9 @@
+Import('base')
+env = base.Clone()
+
+env.Append(DFLAGS = ['-ignore', '-inline', '-O', '-release'])
+env.Append(LIBS = ['#DerelictUtil', '#DerelictGLFW3', '#DerelictIL', '#DerelictGL3'])
+
+prog = env.Program('#bin/release/blur', Glob('src/*.d'))
+
+Return('prog')

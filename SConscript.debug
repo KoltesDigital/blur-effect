@@ -1,0 +1,9 @@
+Import('base')
+env = base.Clone()
+
+env.Append(DFLAGS = ['-debug', '-gc', '-property', '-w'])
+env.Append(LIBS = ['#DerelictUtil', '#DerelictGLFW3', '#DerelictIL', '#DerelictGL3'])
+
+prog = env.Program('#bin/debug/blur', Glob('src/*.d'))
+
+Return('prog')

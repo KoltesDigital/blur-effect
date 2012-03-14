@@ -1,0 +1,8 @@
+Import('base')
+env = base.Clone()
+
+dc = env['DC']
+
+doc = env.Command('doc', Glob('src/*.d'), dc + ' -c -o- -D -Dd$TARGET $SOURCE')
+
+Return('doc')
